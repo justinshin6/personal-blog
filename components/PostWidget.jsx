@@ -4,13 +4,18 @@ import Link from 'next/link'
 import { getRecentPosts, getSimilarPosts } from '../services'
 
 const PostWidget = ({categories, slug}) => {
-    const [relatedPosts, setRelatedPosts] = useState([])
 
+    const [relatedPosts, setRelatedPosts] = useState([])
+    
+    // only run when the slug changes, since slug is in our dependency array
     useEffect(() => {
+        // if we are on a specific post (slug), then get related posts
         if(slug) {
             getSimilarPosts(categories, slug)
                 .then((result) => setRelatedPosts(result))
-        } else {
+        } 
+        // if we are on main home page, get recent posts
+        else {
             getRecentPosts()
                 .then((result) => setRelatedPosts(result))
         }

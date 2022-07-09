@@ -5,6 +5,7 @@ import { getCategories } from '../services'
 const Categories = () => {
     const [categories, setCategories] = useState([])
 
+    // retrieve categories with getCategories() GraphQL query
     useEffect(() => {
         getCategories()
             .then((newCategories) => setCategories(newCategories))
