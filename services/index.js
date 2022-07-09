@@ -1,6 +1,10 @@
 import { request, gql } from "graphql-request"
 
+// This is the file where we are making our GraphQL queries 
+// graphqlAPI from GraphCMS account
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+
+// Query that gets all of the posts 
 export const getPosts = async () => {
     const query = gql`
         query MyQuery {
@@ -37,6 +41,7 @@ export const getPosts = async () => {
     return result.postsConnection.edges
 }
 
+// Query that gets the three most recent posts for the PostWidget
 export const getRecentPosts = async () => {
     const query = gql`
         query GetPostDetails() {
@@ -58,6 +63,7 @@ export const getRecentPosts = async () => {
     return result.posts
 }
 
+// Query that gets related posts for the PostWidget for a specific slug (post)
 export const getSimilarPosts = async () => {
     const query = gql`
         query GetPostDetails($slug: String!, $categories: [String!]) {
@@ -79,6 +85,7 @@ export const getSimilarPosts = async () => {
     return result.posts
 }
 
+// Query that gets all categories for the posts for the Category sidebar
 export const getCategories = async () => {
     const query = gql`
         query GetCategories {

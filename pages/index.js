@@ -23,6 +23,7 @@ export default function Home({posts}) {
   );
 }
 
+// Fetch the posts with GraphQL
 export async function getStaticProps() {
     const posts = (await getPosts()) || []
 
