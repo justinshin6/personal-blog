@@ -1,15 +1,31 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useRouter } from 'next/router';
-
 import { getCategories, getCategoryPost } from '../../services';
-import { PostCard, Categories, Loader } from '../../components';
+import { PostCard, Categories, Loader, PostWidget } from '../../components';
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
-
   if (router.isFallback) {
     return <Loader />;
   }
+
+  const [categories, setCategories] = useState([])
+
+    // retrieve categories with getCategories() GraphQL query
+    useEffect(() => {
+        getCategories()
+            .then((newCategories) => setCategories(newCategories))
+    }, [])
+
+  
+    // call the function
+  const post = posts[0].node
+//   const allSlugs = Object.values(allObj)  
+//   const slug = allSlugs[allSlugs.length - 1]
+
+
+
+  
 
   return (
     <div className="container mx-auto px-10 mb-8">
@@ -21,6 +37,7 @@ const CategoryPost = ({ posts }) => {
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative lg:sticky top-8">
+              <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)}/>
             <Categories />
           </div>
         </div>
@@ -45,6 +62,6 @@ export async function getStaticPaths() {
   const categories = await getCategories();
   return {
     paths: categories.map(({ slug }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   };
 }
