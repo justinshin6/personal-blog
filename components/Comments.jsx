@@ -7,11 +7,13 @@ import { getComments } from '../services';
 const Comments = ({ slug }) => {
   const [comments, setComments] = useState([]);
 
+  // when component renders, get comments from the slug link and 
+  // then set the comments to the ones generated 
   useEffect(() => {
     getComments(slug).then((result) => {
       setComments(result);
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <>

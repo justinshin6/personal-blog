@@ -7,6 +7,7 @@ const CommentsForm = ({ slug }) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false });
 
+  // when the component renders, set form data to he initial form data
   useEffect(() => {
     setLocalStorage(window.localStorage);
     const initalFormData = {
@@ -15,64 +16,68 @@ const CommentsForm = ({ slug }) => {
       storeData: window.localStorage.getItem('name') || window.localStorage.getItem('email'),
     };
     setFormData(initalFormData);
-  }, []);
+  }, [])
 
   const onInputChange = (e) => {
-    const { target } = e;
+    const { target } = e
+    // if event is a checkbox
     if (target.type === 'checkbox') {
       setFormData((prevState) => ({
         ...prevState,
         [target.name]: target.checked,
-      }));
+      }))
     } else {
       setFormData((prevState) => ({
         ...prevState,
         [target.name]: target.value,
-      }));
+      }))
     }
-  };
+  }
 
   const handlePostSubmission = () => {
-    setError(false);
-    const { name, email, comment, storeData } = formData;
+    setError(false)
+    const { name, email, comment, storeData } = formData
+
+    // if not all information is filled, set error to true
     if (!name || !email || !comment) {
-      setError(true);
-      return;
+      setError(true)
+      return
     }
     const commentObj = {
       name,
       email,
       comment,
       slug,
-    };
+    }
 
+    // checks to see if user asks to store data
     if (storeData) {
-      localStorage.setItem('name', name);
-      localStorage.setItem('email', email);
+      localStorage.setItem('name', name)
+      localStorage.setItem('email', email)
     } else {
-      localStorage.removeItem('name');
-      localStorage.removeItem('email');
+      localStorage.removeItem('name')
+      localStorage.removeItem('email')
     }
 
     submitComment(commentObj)
       .then((res) => {
         if (res.createComment) {
           if (!storeData) {
-            formData.name = '';
-            formData.email = '';
+            formData.name = ''
+            formData.email = ''
           }
-          formData.comment = '';
+          formData.comment = ''
           setFormData((prevState) => ({
             ...prevState,
             ...formData,
           }));
-          setShowSuccessMessage(true);
+          setShowSuccessMessage(true)
           setTimeout(() => {
-            setShowSuccessMessage(false);
-          }, 3000);
+            setShowSuccessMessage(false)
+          }, 3000)
         }
-      });
-  };
+      })
+  }
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
@@ -96,7 +101,7 @@ const CommentsForm = ({ slug }) => {
         {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comment submitted for review</span>}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default CommentsForm;
