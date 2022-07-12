@@ -4,12 +4,14 @@ import { getCategories, getCategoryPost } from '../../services';
 import { PostCard, Categories, Loader, PostWidget } from '../../components';
 
 const CategoryPost = ({ posts }) => {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <Loader />;
-  }
 
-  const [categories, setCategories] = useState([])
+    const [categories, setCategories] = useState([])
+    const router = useRouter();
+
+    if (router.isFallback) {
+        return <Loader />;
+    }
+
 
     // retrieve categories with getCategories() GraphQL query
     useEffect(() => {
@@ -17,15 +19,8 @@ const CategoryPost = ({ posts }) => {
             .then((newCategories) => setCategories(newCategories))
     }, [])
 
-  
-    // call the function
-  const post = posts[0].node
-//   const allSlugs = Object.values(allObj)  
-//   const slug = allSlugs[allSlugs.length - 1]
-
-
-
-  
+    // get the first post of the category
+    const post = posts[0].node
 
   return (
     <div className="container mx-auto px-10 mb-8">
@@ -43,8 +38,8 @@ const CategoryPost = ({ posts }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 export default CategoryPost;
 
 // Fetch data at build time
