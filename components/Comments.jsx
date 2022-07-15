@@ -28,7 +28,7 @@ const Comments = ({ slug }) => {
 
           </h3>
             {comments.map((comment, index) => (
-              <div key={index} className="border-b border-gray-100 mb-4 pb-4">
+              <div key={index} className="border-gray-100 mb-4 pb-4">
                 <p className="mb-4 text-white">
                   <span className="font-semibold text-white">{comment.name}</span>
                   {' '}
