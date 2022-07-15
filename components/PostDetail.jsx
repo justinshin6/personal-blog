@@ -26,7 +26,7 @@ const PostDetail = ({post}) => {
           case 'heading-three':
             return <h3 key={index} className="text-xl text-white font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>
           case 'paragraph':
-            return <p key={index} className="mb-8 text-indigo-100	 ">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>
+            return <p key={index} className="mb-8 text-white	 ">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>
           case 'heading-four':
             return <h4 key={index} className="text-md text-white font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>
           case 'image':
@@ -66,7 +66,7 @@ const PostDetail = ({post}) => {
                         <p className="inline align-middle text-white ml-2 text-lg">{post.author.name}</p>
                     </div>
                     <div className="font-medium text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         <span>

@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <div className="container mx-auto px-10 mb-8">
-      <div className="border-b w-full inline-block border-indigo-500 py-8	">
+      <div className="border-b w-full inline-block border-sky-400 py-8	">
         <div className="md:float-left block">
           <Link href="/">
             <span className="cursor-pointer font-bold text-4xl text-white">The Shin Guard Blog</span>
@@ -31,4 +31,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header
