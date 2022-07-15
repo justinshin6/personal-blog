@@ -21,6 +21,7 @@ const CategoryPost = ({ posts }) => {
 
     // get the first post of the category
     const post = posts[0].node
+    console.log(post.slug)
 
   return (
     <div className="container mx-auto px-10 mb-8">

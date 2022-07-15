@@ -83,7 +83,7 @@ const CommentsForm = ({ slug }) => {
     <div className="bg-gray-700 bg-opacity-30 shadow-lg rounded-lg p-8 pb-12 mb-8">
       <h3 className="text-xl text-white mb-8 font-semibold border-b pb-4">Leave a Reply</h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
-        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
+        <textarea value={formData.comment == null ? '' : formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Name" name="name" />
@@ -92,7 +92,7 @@ const CommentsForm = ({ slug }) => {
       <div className="grid grid-cols-1 gap-4 mb-4">
         <div>
           <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
-          <label className="text-white cursor-pointer" htmlFor="storeData"> Save my name, email in this browser for the next time I comment.</label>
+          <label className="text-white ml-2 cursor-pointer" htmlFor="storeData"> Save my name, email in this browser for the next time I comment.</label>
         </div>
       </div>
       {error && <p className="text-xs text-red-500">All fields are mandatory</p>}
