@@ -21,7 +21,6 @@ const CategoryPost = ({ posts }) => {
 
     // get the first post of the category
     const post = posts[0].node
-    console.log(post.slug)
 
   return (
     <div className="container mx-auto px-10 mb-8">
@@ -33,7 +32,7 @@ const CategoryPost = ({ posts }) => {
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative lg:sticky top-8">
-              <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)}/>
+            <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)}/>
             <Categories />
           </div>
         </div>

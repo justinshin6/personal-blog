@@ -11,9 +11,9 @@ const Comments = ({ slug }) => {
   // then set the comments to the ones generated 
   useEffect(() => {
     getComments(slug).then((result) => {
-      setComments(result);
+      setComments(result)
     })
-  }, [])
+  }, [slug])
 
   return (
     <>
