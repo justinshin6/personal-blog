@@ -6,7 +6,7 @@ import { getCategories } from '../services';
 const Header = () => {
   const [categories, setCategories] = useState([]);
   
-  const titleOfBlog = 'The Shin HIHIHI Blog'
+  const titleOfBlog = 'The Shin Guards Blog'
 
   useEffect(() => {
     getCategories().then((newCategories) => {
