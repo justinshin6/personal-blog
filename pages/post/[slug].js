@@ -8,7 +8,7 @@ const PostDetails = ({ post }) => {
   const router = useRouter()
 
   if (router.isFallback) {
-    return <Loader />;
+    return <Loader />
   }
 
   return (
@@ -30,18 +30,18 @@ const PostDetails = ({ post }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 export default PostDetails;
 
 // Fetch data at build time
 export async function getStaticProps({ params }) {
-  const data = await getPostDetails(params.slug);
+  const data = await getPostDetails(params.slug)
   return {
     props: {
       post: data,
     },
-  };
+  }
 }
 
 // Specify dynamic routes to pre-render pages based on data.
