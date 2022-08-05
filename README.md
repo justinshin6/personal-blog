@@ -14,7 +14,7 @@ Third, I chose to write about productivity because I have recently been invested
 and I feel like I've learned some tricks and tips from other professionals on productivity, but I 
 also like putting my own spin on things to make myself a little bit more productive than the day 
 before. These three topics are three huge passions of mine, so I felt like they would be good 
-categories for this blog personal project. 
+categories for this personal blog project. 
 ### Technologies Used 
 - In this full-stack application, I used React.js and Next.js to create the blog while using 
 Tailwind CSS to style the application while using GraphQL and Hygraph (formerly known as 
