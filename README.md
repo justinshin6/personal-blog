@@ -21,4 +21,4 @@ Tailwind CSS to style the application while using GraphQL and Hygraph (formerly 
 GraphCMS) to store data (i.e., posts, comments, categories, and authors) and make queries 
 to the database. It was very cool to learn about Next.js and GraphQL since this was my first
 project using these technologies, and it was very cool to finally have a working blog 
-application where I can share my opinions and thoughts with others. 
+application where I can share my opinions, thoughts, and stories with others. 
