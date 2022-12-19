@@ -6,7 +6,7 @@ const PostDetail = ({post}) => {
     const getContentFragment = (index, text, obj, type) => {
         let modifiedText = text
     
-        // if obj not null
+        // if obj not null 
         if (obj) {
             // if bold, then modify
             if (obj.bold) {
