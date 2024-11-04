@@ -3,7 +3,7 @@ import { PostCard, Categories, PostWidget } from '../components'
 import { FeaturedPosts } from '../sections'
 export default function Home({posts}) {
 
-  // number of posts that show up on the Home page
+  // number of posts that show up on the Home page 
   const numberOfPosts = 20
   
   return (
